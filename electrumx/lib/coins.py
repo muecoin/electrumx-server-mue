@@ -2617,11 +2617,6 @@ class MonetaryUnit(Coin):
     SESSIONCLS = MonetaryUnitElectrumX
     PEERS = []
 
-    @classmethod
-    def header_hash(cls, header):
-        '''Given a header return the hash.'''
-        return cls.HEADER_HASH(header)
-
 
 class EXOS(Coin):
     NAME = "EXOS"
