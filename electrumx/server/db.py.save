@@ -111,10 +111,10 @@ class DB(object):
         tx_counts = self.tx_counts_file.read(0, size)
         assert len(tx_counts) == size
         self.tx_counts = array.array('I', tx_counts)
-  #      if self.tx_counts:
-   #         assert self.db_tx_count == self.tx_counts[-1]
-    #    else:
-     #       assert self.db_tx_count == 0
+        if self.tx_counts:
+            assert self.db_tx_count == self.tx_counts[-1]
+        else:
+            assert self.db_tx_count == 0
 
     async def _open_dbs(self, for_sync, compacting):
         assert self.utxo_db is None

@@ -124,7 +124,7 @@ def test_COIN_NET():
     os.environ.pop('NET')
     os.environ['COIN'] = ' MonetaryUnit '
     e = Env()
-    assert e.coin == lib_coins.MonetaryUnit
+    assert e.coin == lib_coins.Bitg
     os.environ['NET'] = 'mainnet'
     e = Env()
     os.environ.pop('NET')

@@ -30,7 +30,7 @@ from binascii import unhexlify
 
 import pytest
 
-from electrumx.lib.coins import Coin, MonetaryUnit
+from electrumx.lib.coins import Coin
 from electrumx.lib.hash import hex_str_to_hash
 from electrumx.lib.util import pack_be_uint32
 
@@ -62,9 +62,8 @@ def test_block(block_details):
     raw_block = unhexlify(block_info['block'])
     block = coin.block(raw_block, block_info['height'])
 
-    if coin != MonetaryUnit:
-        assert coin.header_hash(
-            block.header) == hex_str_to_hash(block_info['hash'])
+    assert coin.header_hash(
+        block.header) == hex_str_to_hash(block_info['hash'])
     assert (coin.header_prevhash(block.header)
             == hex_str_to_hash(block_info['previousblockhash']))
     for n, (tx, txid) in enumerate(block.transactions):
